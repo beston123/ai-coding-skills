@@ -47,8 +47,33 @@ The review agents:
 2. **Code Quality Reviewer** - Focus on clean code, maintainability, patterns
 3. **Efficiency Reviewer** - Focus on performance, resource usage, concurrency
 
-## Phase 3: Fix Issues
+## Phase 3: Prioritize Issues
 
-Wait for all three agents to complete. Aggregate their findings and fix each issue directly. If a finding is a false positive or not worth addressing, note it and move on — do not argue with the finding, just skip it.
+Wait for all the agents to complete. Aggregate their findings, assign a unique **Issue ID** (e.g., 1, 2) to each identified problem, and rank them by impact and effort:
+1. **Critical**: Security vulnerabilities, bugs, performance-critical issues
+2. **High**: Significant duplication, major quality issues, important optimizations
+3. **Medium**: Moderate improvements, style violations, minor optimizations
+4. **Low**: Cosmetic changes, trivial improvements
 
-When done, briefly summarize what was fixed (or confirm the code was already clean).
+Present the prioritized list of issues grouped by severity, ensuring each issue clearly displays its ID, finding, location and a brief suggestion.
+
+## Phase 4: Fix Issues
+
+After presenting the prioritized list, **PAUSE and await user instructions**. Offer these 4 options:
+* **Recommended Fix**: Address only Critical and High severity issues (or those most impactful).
+* **Fix All**: Resolve all identified issues.
+* **Selective Fix**: Address specific IDs (e.g., "fix 1, 3") or severity levels (e.g., "High+").
+* **Skip**: Apply no fixes and proceed.
+
+Wait for the user's input, then apply the chosen fixes. If a finding within the selected scope is a false positive or not worth addressing, note it and move on — do not argue with the finding, just skip it.
+
+When done, briefly summarize what was fixed and reference the Issue IDs that were resolved (or confirm the code was already clean).
+
+### Implementation Guidelines
+
+**Preserve functionality:** All fixes must maintain existing behavior unless explicitly requested otherwise.
+**Incremental changes:** Prefer small, focused improvements over massive rewrites.
+**Test preservation:** Ensure all existing tests continue to pass after changes.
+**Consistency:** Follow existing codebase patterns and conventions.
+**Documentation:** Add or update comments to explain non-obvious logic.
+**Performance focus:** Only optimize code that is proven to be performance-critical.
