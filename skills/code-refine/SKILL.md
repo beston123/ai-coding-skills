@@ -71,9 +71,9 @@ When done, briefly summarize what was fixed and reference the Issue IDs that wer
 
 ### Implementation Guidelines
 
-**Preserve functionality:** All fixes must maintain existing behavior unless explicitly requested otherwise.
-**Incremental changes:** Prefer small, focused improvements over massive rewrites.
-**Test preservation:** Ensure all existing tests continue to pass after changes.
-**Consistency:** Follow existing codebase patterns and conventions.
-**Documentation:** Add or update comments to explain non-obvious logic.
-**Performance focus:** Only optimize code that is proven to be performance-critical.
+* **Preserve functionality:** All fixes must maintain existing behavior unless explicitly requested otherwise.
+* **Incremental changes:** Prefer small, focused improvements over massive rewrites.
+* **Test preservation:** Ensure all existing tests continue to pass after changes.
+* **Consistency:** Follow existing codebase patterns and conventions.
+* **Documentation:** Add or update comments to explain non-obvious logic.
+* **Performance focus:** Only optimize code that is proven to be performance-critical.
